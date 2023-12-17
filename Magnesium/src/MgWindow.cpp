@@ -99,7 +99,8 @@ void MgWindow::endRender()
 
 void MgWindow::close()
 {
-	glfwSetWindowShouldClose(p_window, true);
+	glfwSetWindowShouldClose(p_window, GLFW_TRUE);
+	initialized = false;
 }
 
 GLFWwindow* MgWindow::getGlfwWindowPtr()

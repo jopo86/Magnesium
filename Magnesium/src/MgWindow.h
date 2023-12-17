@@ -11,8 +11,7 @@
 
 /*
  * @brief A class that represents a window.
- * Note that init() must be called on the window object
- * after it is created to use it.
+ * Note that init() must be called on the window object after it is created to use it.
  */
 class MgWindow : public MgObject
 {
@@ -41,8 +40,7 @@ public:
 	/*
 	 * @brief Initializes the window.
 	 * This function initializes the backends, including GLFW and GLAD.
-	 * Must be called before any other window-related functions,
-	 * will cause undefined behavior otherwise.
+	 * Must be called before any other window-related functions, will cause undefined behavior otherwise.
 	 * @param errorHandler The error handler to use if something goes wrong.
 	 */
 	void init(MgErrorHandler& errorHandler);
@@ -55,7 +53,7 @@ public:
 
 	/*
 	 * @brief Tells the window that rendering is done.
-	 * This function swaps buffers and polls events of the window.
+	 * This function swaps window buffers and polls input events.
 	 * Should be called after all rendering is done.
 	 */
 	void endRender();
@@ -103,7 +101,7 @@ public:
 	int getBufferHeight();
 
 	/*
-	 * @brief Returns true if init() has been called, otherwise false.
+	 * @brief Returns true if init() has been called on the window, otherwise false.
 	 * @return Whether or not the window has been initialized.
 	 */
 	bool isInitialized();
@@ -116,8 +114,7 @@ public:
 
 	/*
 	 * @brief Cleans up any memory and/or resources used by the window.
-	 * This function should be called when the object is no longer needed,
-	 * such as when the program exits or the object goes out of scope.
+	 * This function should be called when the object is no longer needed, such as when the program exits or the object goes out of scope.
 	 */
 	void cleanup();
 

@@ -3,32 +3,32 @@
 MgErrorHandler::MgErrorHandler()
 {
 	errors = {};
-	logAll = false;
-	throwAll = false;
+	logging = false;
+	throwing = false;
 }
 
-MgErrorHandler::MgErrorHandler(bool logAll, bool throwAll)
+MgErrorHandler::MgErrorHandler(bool logging, bool throwing)
 {
 	errors = {};
-	this->logAll = logAll;
-	this->throwAll = throwAll;
+	this->logging = logging;
+	this->throwing = throwing;
 }
 
 void MgErrorHandler::err(std::string error)
 {
 	errors.push_back(error);
-	if (logAll) std::cout << "Magnesium error: " << error << "\n";
-	if (throwAll) throw std::runtime_error(error);
+	if (logging) std::cout << "Magnesium error: " << error << "\n";
+	if (throwing) throw std::runtime_error(error);
 }
 
-void MgErrorHandler::setLogAll(bool enabled)
+void MgErrorHandler::setLogging(bool enabled)
 {
-	logAll = enabled;
+	logging = enabled;
 }
 
-void MgErrorHandler::setThrowAll(bool enabled)
+void MgErrorHandler::setThrowing(bool enabled)
 {
-	throwAll = enabled;
+	throwing = enabled;
 }
 
 std::vector<std::string> MgErrorHandler::getErrors()
@@ -41,19 +41,19 @@ std::string MgErrorHandler::getLastError()
 	return errors[errors.size() - 1];
 }
 
-bool MgErrorHandler::logsAll()
+bool MgErrorHandler::isLogging()
 {
-	return logAll;
+	return logging;
 }
 
-bool MgErrorHandler::throwsAll()
+bool MgErrorHandler::isThrowing()
 {
-	return throwAll;
+	return throwing;
 }
 
 void MgErrorHandler::cleanup()
 {
 	errors.clear();
-	logAll = false;
-	throwAll = false;
+	logging = false;
+	throwing = false;
 }

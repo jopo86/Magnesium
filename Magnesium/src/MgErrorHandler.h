@@ -9,8 +9,9 @@
 
 /*
  * @brief A class to handle internal errors and relay them back to the user.
- * When an error occurs, the error handler decides what to do with it,
- * based on the logging/throwing settings set by the user.
+ * Magnesium recognizes errors that occur in the backend, but the user can decide what to do with them using this class.
+ * All functions that have the potential to cause an error have an overloaded version that takes an MgErrorHandler object as the last paremeter.
+ * When an error occurs, the error handler decides what to do with it, based on the logging/throwing settings set by the user.
  */
 class MgErrorHandler : public MgObject
 {
@@ -22,35 +23,33 @@ public:
 
 	/*
 	 * @brief Creates a new MgErrorHandler object with the specified logging and throwing settings.
-	 * @param logAll Whether to log all errors.
-	 * @param throwAll Whether to throw all errors.
+	 * @param logging Whether to log all errors.
+	 * @param throwing Whether to throw all errors.
 	 */
-	MgErrorHandler(bool logAll, bool throwAll);
+	MgErrorHandler(bool logging, bool throwing);
 
 	/*
 	 * @brief Passes an error to the error handler.
-	 * The error handler decides what to do with the error
-	 * based on the logging/throwing settings.
-	 * This function should not really by called by the user,
-	 * it is just used by the library.
+	 * The error handler decides what to do with the error based on the logging/throwing settings.
+	 * This function should not really by called by the user, it is just used by the library when appropriate.
 	 * @param error The error to pass.
 	 */
 	void err(std::string error);
 
 	/*
 	 * @brief Sets whether to log all errors.
-	 * @param enabled Whether to log all errors.
+	 * @param enabled The desired logging setting.
 	 */
-	void setLogAll(bool enabled);
+	void setLogging(bool enabled);
 
 	/*
 	 * @brief Sets whether to throw all errors.
-	 * @param enabled Whether to throw all errors.
+	 * @param enabled The desired throwing setting.
 	 */
-	void setThrowAll(bool enabled);
+	void setThrowing(bool enabled);
 
 	/*
-	 * @brief Gets all errors.
+	 * @brief Returns all errors.
 	 * @return A vector containing all errors.
 	 */
 	std::vector<std::string> getErrors();
@@ -65,24 +64,23 @@ public:
 	 * @brief Returns whether the handler logs all errors.
 	 * @return Whether the handler logs all errors.
 	 */
-	bool logsAll();
+	bool isLogging();
 
 	/*
 	 * @brief Returns whether the handler throws all errors.
 	 * @return Whether the handler throws all errors.
 	 */
-	bool throwsAll();
+	bool isThrowing();
 
 	/*
 	 * @brief Cleans up any memory and/or resources used by the error handler.
-	 * This function should be called when the object is no longer needed,
-	 * such as when the program exits or the object goes out of scope.
+	 * This function should be called when the object is no longer needed, such as when the program exits or the object goes out of scope.
 	 */
 	void cleanup();
 
 private:
 	std::vector<std::string> errors;
 
-	bool logAll;
-	bool throwAll;
+	bool logging;
+	bool throwing;
 };
