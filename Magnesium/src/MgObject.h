@@ -3,5 +3,5 @@
 class MgObject
 {
 public:
-	virtual void cleanup() = 0;
+	virtual void dispose() = 0;
 };

@@ -158,14 +158,19 @@
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\MgErrorHandler.cpp" />
+    <ClCompile Include="src\MgInputHandler.cpp" />
+    <ClCompile Include="src\MgMesh.cpp" />
+    <ClCompile Include="src\MgMeshPresets.cpp" />
     <ClCompile Include="src\MgWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\MgErrorHandler.h" />
     <ClInclude Include="src\Magnesium.h" />
+    <ClInclude Include="src\MgInputHandler.h" />
+    <ClInclude Include="src\MgMesh.h" />
+    <ClInclude Include="src\MgMeshPresets.h" />
     <ClInclude Include="src\MgObject.h" />
     <ClInclude Include="src\MgWindow.h" />
-    <ClInclude Include="src\typedefs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

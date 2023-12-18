@@ -51,7 +51,7 @@ bool MgErrorHandler::isThrowing()
 	return throwing;
 }
 
-void MgErrorHandler::cleanup()
+void MgErrorHandler::dispose()
 {
 	errors.clear();
 	logging = false;

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "typedefs.h"
-
 #define MG_KEY_UNKNOWN -1
 #define MG_KEY_SPACE 32
 #define MG_KEY_APOSTROPHE 39
