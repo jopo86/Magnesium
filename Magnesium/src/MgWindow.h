@@ -13,7 +13,7 @@ class MgWindow : public MgObject
 {
 public:
 	MgWindow();
-	MgWindow(std::string title, int width, int height);
+	MgWindow(const char* title, int width, int height);
 
 	void init();
 	void init(MgErrorHandler& errorHandler);
@@ -24,7 +24,7 @@ public:
 	void close();
 
 	GLFWwindow* getGlfwWindowPtr();
-	std::string getTitle();
+	const char* getTitle();
 	int getWidth();
 	int getHeight();
 	int getBufferWidth();
@@ -32,12 +32,17 @@ public:
 	bool isInitialized();
 	bool isOpen();
 
+	void setBackgroundColor(float r, float g, float b);
+
 	void dispose() override;
 
 private:
 	GLFWwindow* p_window;
-	std::string title;
+	const char* title;
 	int width, height, bufferWidth, bufferHeight;
+	float bgR;
+	float bgG;
+	float bgB;
 
 	bool initialized;
 

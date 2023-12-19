@@ -12,5 +12,5 @@ MgMesh MgMeshPresets::Triangle()
 		0, 1, 2
 	};
 
-	return MgMesh(vertices, indices, sizeof(vertices), sizeof(indices));
+	return MgMesh(vertices, sizeof(vertices), MG_VERTEX_FORMAT_V, indices, sizeof(indices));
 }

@@ -10,7 +10,7 @@ MgWindow::MgWindow()
 	initialized = false;
 }
 
-MgWindow::MgWindow(std::string title, int width, int height)
+MgWindow::MgWindow(const char* title, int width, int height)
 {
 	p_window = nullptr;
 	this->title = title;
@@ -32,7 +32,7 @@ void MgWindow::init()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 #endif
 
-	p_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	p_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 	glfwMakeContextCurrent(p_window);
 	glfwGetFramebufferSize(p_window, &bufferWidth, &bufferHeight);
 	glfwSetWindowUserPointer(p_window, this);
@@ -61,7 +61,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 #endif
 
-	p_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+	p_window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 	if (p_window == nullptr)
 	{
 		errorHandler.err("failed to create GLFW window.");
@@ -108,7 +108,7 @@ GLFWwindow* MgWindow::getGlfwWindowPtr()
 	return p_window;
 }
 
-std::string MgWindow::getTitle()
+const char* MgWindow::getTitle()
 {
 	return title;
 }

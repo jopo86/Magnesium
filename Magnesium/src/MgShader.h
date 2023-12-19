@@ -13,11 +13,13 @@ public:
 	MgShader(const char* vertSource, const char* fragSource, MgErrorHandler& errorHandler);
 
 	void use();
-	static void UseDefault();
+	void unuse();
 
 	uint getProgram();
 	const char* getVertSource();
 	const char* getFragSource();
+
+	void uniform(const char* name, float v0, float v1, float v2, float v3);
 
 	void dispose() override;
 

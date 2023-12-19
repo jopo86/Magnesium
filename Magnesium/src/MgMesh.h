@@ -9,7 +9,7 @@ class MgMesh : public MgObject
 {
 public:
 	MgMesh();
-	MgMesh(float* vertices, uint* indices, uint verticesSize, uint indicesSize);
+	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
 
 	void render();
 

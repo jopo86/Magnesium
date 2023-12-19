@@ -6,6 +6,8 @@
 #include "MgMesh.h"
 #include "MgMeshPresets.h"
 #include "MgShader.h"
+#include "MgShaderPresets.h"
+#include "MgUtils.h"
 
 int main()
 {
@@ -18,29 +20,7 @@ int main()
 
 	MgMesh triangle = MgMeshPresets::Triangle();
 
-	const char* vertSource = R"(
-		#version 330 core
-
-		layout(location = 0) in vec3 pos;
-
-		void main()
-		{
-			gl_Position = vec4(pos, 1.0f);
-		}
-	)";
-
-	const char* fragSource = R"(
-		#version 330 core
-
-		out vec4 color;
-
-		void main()
-		{
-			color = vec4(0.0f, 0.3f, 1.0f, 1.0f);
-		}
-	)";
-
-	MgShader shader(vertSource, fragSource, errorHandler);
+	MgShader shader = MgShaderPresets::Color(0.0f, 0.4f, 1.0f);
 	shader.use();
 
 	while (window.isOpen())

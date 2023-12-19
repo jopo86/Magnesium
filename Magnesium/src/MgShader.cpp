@@ -100,7 +100,7 @@ void MgShader::use()
 	glUseProgram(prog);
 }
 
-void MgShader::UseDefault()
+void MgShader::unuse()
 {
 	glUseProgram(0);
 }
@@ -118,6 +118,11 @@ const char* MgShader::getVertSource()
 const char* MgShader::getFragSource()
 {
 	return fragSource;
+}
+
+void MgShader::uniform(const char* name, float v0, float v1, float v2, float v3)
+{
+	glUniform4f(glGetUniformLocation(prog, name), v0, v1, v2, v3);
 }
 
 void MgShader::dispose()

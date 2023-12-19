@@ -162,6 +162,8 @@
     <ClCompile Include="src\MgMesh.cpp" />
     <ClCompile Include="src\MgMeshPresets.cpp" />
     <ClCompile Include="src\MgShader.cpp" />
+    <ClCompile Include="src\MgShaderPresets.cpp" />
+    <ClCompile Include="src\MgUtils.cpp" />
     <ClCompile Include="src\MgWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +174,8 @@
     <ClInclude Include="src\MgMeshPresets.h" />
     <ClInclude Include="src\MgObject.h" />
     <ClInclude Include="src\MgShader.h" />
+    <ClInclude Include="src\MgShaderPresets.h" />
+    <ClInclude Include="src\MgUtils.h" />
     <ClInclude Include="src\MgWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
