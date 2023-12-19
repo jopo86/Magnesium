@@ -49,7 +49,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 {
 	if (!glfwInit())
 	{
-		errorHandler.err("Failed to initialize GLFW.");
+		errorHandler.err("failed to initialize GLFW.");
 		return;
 	}
 
@@ -64,7 +64,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 	p_window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
 	if (p_window == nullptr)
 	{
-		errorHandler.err("Failed to create GLFW window.");
+		errorHandler.err("failed to create GLFW window.");
 		return;
 	}
 
@@ -75,7 +75,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
-		errorHandler.err("Failed to initialize OpenGL.");
+		errorHandler.err("failed to initialize OpenGL.");
 		return;
 	}
 
@@ -87,7 +87,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 
 void MgWindow::startRender()
 {
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

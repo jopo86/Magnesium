@@ -32,7 +32,7 @@ public:
 	bool isInitialized();
 	bool isOpen();
 
-	void dispose();
+	void dispose() override;
 
 private:
 	GLFWwindow* p_window;

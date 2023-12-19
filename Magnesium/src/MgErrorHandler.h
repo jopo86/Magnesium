@@ -23,7 +23,7 @@ public:
 	bool isLogging();
 	bool isThrowing();
 
-	void dispose();
+	void dispose() override;
 
 private:
 	std::vector<std::string> errors;

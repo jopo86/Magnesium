@@ -18,7 +18,7 @@ public:
 	uint getVerticesSize();
 	uint getIndicesSize();
 
-	void dispose();
+	void dispose() override;
 
 private:
 	uint vao, vbo, ibo;

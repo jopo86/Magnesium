@@ -6,7 +6,7 @@
 #include "Magnesium.h"
 #include "MgWindow.h"
 
-class MgInputHandler
+class MgInputHandler : public MgObject
 {
 public:
 	MgInputHandler();
@@ -24,6 +24,7 @@ public:
 	double getMouseX();
 	double getMouseY();
 
+	void dispose() override;
 
 private:
 	GLFWwindow* p_window;

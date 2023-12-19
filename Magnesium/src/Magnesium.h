@@ -1,5 +1,43 @@
 #pragma once
 
+#if defined(__LP64__) || defined(_LP64) || defined(__amd64__) || defined(__x86_64__) || defined(_M_X64) || defined(__ia64__) || defined(_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || defined(__ppc64__) || defined(__PPC64__) || defined(__mips64__) || defined(__mips64) || defined(__mips64) || defined(__sparc64__) || defined(__arch64__)
+	#define MG_ARCH_64
+#elif defined(__i386__) || defined(_M_IX86) || defined(__arm__) || defined(__mips__) || defined(__mips) || defined(__sparc__) || defined(__PPC__) || defined(__ppc__) || defined(__powerpc__) || defined(__powerpc) || defined(__ppc64__) || defined(__PPC64__) || defined(__ppc64) || defined(__PPC64) || defined(__mip) || defined(__mips) || defined(__mips__)
+	#define MG_ARCH_32
+#else
+	#define MG_ARCH_UNKNOWN
+#endif
+
+#if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(__TOS_WIN__) || defined(__WINDOWS__)
+	#define MG_OS_WINDOWS
+#elif defined(__linux__) || defined(__linux) || defined(linux) || defined(__gnu_linux__)
+	#define MG_OS_LINUX
+#elif defined(__APPLE__) || defined(__MACH__)
+	#define MG_OS_MAC
+#else
+	#define MG_OS_UNKNOWN
+#endif
+
+#ifdef MG_ARCH_64
+	#define MG_BUFFER_SIZE 1024
+#elif defined(MG_ARCH_32)
+	#define MG_BUFFER_SIZE 512
+#else
+	#define MG_BUFFER_SIZE 256
+#endif
+
+#define MG_VERTEX_FORMAT_V 400
+#define MG_VERTEX_FORMAT_VT 401
+#define MG_VERTEX_FORMAT_TV 402
+#define MG_VERTEX_FORMAT_VC 403
+#define MG_VERTEX_FORMAT_CV 404
+#define MG_VERTEX_FORMAT_VCT 405
+#define MG_VERTEX_FORMAT_VTC 406
+#define MG_VERTEX_FORMAT_CVT 407
+#define MG_VERTEX_FORMAT_TVC 408
+#define MG_VERTEX_FORMAT_CTV 409
+#define MG_VERTEX_FORMAT_TCV 410
+
 #define MG_KEY_UNKNOWN -1
 #define MG_KEY_SPACE 32
 #define MG_KEY_APOSTROPHE 39
@@ -123,26 +161,10 @@
 #define MG_KEY_MENU 348
 #define MG_MAX_KEY MG_KEY_MENU
 
-#define MG_MOUSE_LEFT 0
-#define MG_MOUSE_RIGHT 1
-#define MG_MOUSE_MIDDLE 2
-#define MG_MOUSE_4 3
-#define MG_MOUSE_5 4
-#define MG_MOUSE_6 5
-#define MG_MOUSE_7 6
-#define MG_MOUSE_8 7
-#define MG_MOUSE_SIDE_BACK MG_MOUSE_4
-#define MG_MOUSE_SIDE_FRONT MG_MOUSE_5
-#define MG_MAX_MOUSE MG_MOUSE_8
-
-#define MG_VERTEX_FORMAT_V 0
-#define MG_VERTEX_FORMAT_VT 1
-#define MG_VERTEX_FORMAT_TV 2
-#define MG_VERTEX_FORMAT_VC 3
-#define MG_VERTEX_FORMAT_CV 4
-
 typedef char byte;
 typedef unsigned char ubyte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
+typedef unsigned long long ulonglong;
+

@@ -5,10 +5,11 @@
 #include "MgInputHandler.h"
 #include "MgMesh.h"
 #include "MgMeshPresets.h"
+#include "MgShader.h"
 
 int main()
 {
-	MgErrorHandler errorHandler = MgErrorHandler(true, false);
+	MgErrorHandler errorHandler = MgErrorHandler(true, true);
 
 	MgWindow window;
 	window.init(errorHandler);
@@ -16,6 +17,31 @@ int main()
 	MgInputHandler input(window);
 
 	MgMesh triangle = MgMeshPresets::Triangle();
+
+	const char* vertSource = R"(
+		#version 330 core
+
+		layout(location = 0) in vec3 pos;
+
+		void main()
+		{
+			gl_Position = vec4(pos, 1.0f);
+		}
+	)";
+
+	const char* fragSource = R"(
+		#version 330 core
+
+		out vec4 color;
+
+		void main()
+		{
+			color = vec4(0.0f, 0.3f, 1.0f, 1.0f);
+		}
+	)";
+
+	MgShader shader(vertSource, fragSource, errorHandler);
+	shader.use();
 
 	while (window.isOpen())
 	{
