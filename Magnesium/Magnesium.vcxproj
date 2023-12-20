@@ -180,9 +180,6 @@
     <ClInclude Include="src\MgUtils.h" />
     <ClInclude Include="src\MgWindow.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="temp.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
