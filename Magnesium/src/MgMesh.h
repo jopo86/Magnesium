@@ -3,9 +3,9 @@
 #include <glad/glad.h>
 
 #include "Magnesium.h"
-#include "MgObject.h"
+#include "MgDisposable.h"
 
-class MgMesh : public MgObject
+class MgMesh : public MgDisposable
 {
 public:
 	MgMesh();

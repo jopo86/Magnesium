@@ -5,8 +5,9 @@
 
 #include "Magnesium.h"
 #include "MgWindow.h"
+#include "MgDisposable.h"
 
-class MgInputHandler : public MgObject
+class MgInputHandler : public MgDisposable
 {
 public:
 	MgInputHandler();

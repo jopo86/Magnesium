@@ -6,10 +6,10 @@
 #include <GLFW/glfw3.h>
 
 #include "Magnesium.h"
-#include "MgObject.h"
+#include "MgDisposable.h"
 #include "MgErrorHandler.h"
 
-class MgWindow : public MgObject
+class MgWindow : public MgDisposable
 {
 public:
 	MgWindow();

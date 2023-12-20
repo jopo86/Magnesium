@@ -4,8 +4,9 @@
 
 #include "Magnesium.h"
 #include "MgErrorHandler.h"
+#include "MgDisposable.h"
 
-class MgShader : public MgObject
+class MgShader : public MgDisposable
 {
 public:
 	MgShader();

@@ -7,6 +7,7 @@ MgWindow::MgWindow()
 	width = 800;
 	height = 600;
 	bufferWidth = bufferHeight = 0;
+	bgR = bgG = bgB = 0.0f;
 	initialized = false;
 }
 
@@ -17,6 +18,7 @@ MgWindow::MgWindow(const char* title, int width, int height)
 	this->width = width;
 	this->height = height;
 	bufferWidth = bufferHeight = 0;
+	bgR = bgG = bgB = 0.0f;
 	initialized = false;
 }
 
@@ -87,7 +89,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 
 void MgWindow::startRender()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(bgR, bgG, bgB, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
@@ -141,6 +143,13 @@ bool MgWindow::isInitialized()
 bool MgWindow::isOpen()
 {
 	return !glfwWindowShouldClose(p_window);
+}
+
+void MgWindow::setBackgroundColor(float r, float g, float b)
+{
+	bgR = r;
+	bgG = g;
+	bgB = b;
 }
 
 void MgWindow::dispose()

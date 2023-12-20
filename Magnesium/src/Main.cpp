@@ -7,18 +7,20 @@
 #include "MgMeshPresets.h"
 #include "MgShader.h"
 #include "MgShaderPresets.h"
-#include "MgUtils.h"
+#include "MgMath.h"
+
+using MgMath::MgVec3;
 
 int main()
 {
 	MgErrorHandler errorHandler = MgErrorHandler(true, true);
 
-	MgWindow window;
+	MgWindow window("Magnesium", 800, 600);
 	window.init(errorHandler);
 
 	MgInputHandler input(window);
 
-	MgMesh triangle = MgMeshPresets::Triangle();
+	MgMesh triangle = MgMeshPresets::Triangle(MgVec3(-0.5f, -0.5f, 0.0f), MgVec3(0.5f, -0.5f, 0.0f), MgVec3(0.0f, 0.5f, 0.0f));
 
 	MgShader shader = MgShaderPresets::Color(0.0f, 0.4f, 1.0f);
 	shader.use();

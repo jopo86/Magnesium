@@ -1,6 +1,6 @@
 #pragma once
 
-class MgObject
+class MgDisposable
 {
 public:
 	virtual void dispose() = 0;
