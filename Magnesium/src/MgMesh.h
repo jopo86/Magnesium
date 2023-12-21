@@ -10,7 +10,7 @@ class MgMesh : public MgDisposable
 public:
 	MgMesh();
 	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
-	MgMesh(float* vertices, uint verticesSize, int vertexFormat, int unit, uint* indices, uint indicesSize);
+	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
 
 	void render();
 
@@ -18,9 +18,6 @@ public:
 	uint* getIndices();
 	uint getVerticesSize();
 	uint getIndicesSize();
-	int getUnit();
-
-	void setUnit(int val);
 
 	void dispose() override;
 
@@ -30,6 +27,4 @@ private:
 	float* vertices;
 	uint* indices;
 	uint verticesSize, indicesSize;
-
-	int unit;
 };
