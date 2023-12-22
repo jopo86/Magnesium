@@ -10,7 +10,6 @@ class MgMesh : public MgDisposable
 public:
 	MgMesh();
 	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
-	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
 
 	void render();
 

@@ -10,16 +10,11 @@ namespace MgMeshPresets
 {
 	using MgMath::MgVec2;
 	using MgMath::MgVec3;
-
-	MgMesh Line();
-	MgMesh Line(float length);
-	MgMesh Line(float length, float angle);
-	MgMesh Line(MgVec2 origin, float length, float angle);
-	MgMesh Line(MgVec2 a, MgVec2 b);
+	using MgMath::Radians;
 
 	MgMesh Triangle();
-	MgMesh Triangle(float base, float height);
 	MgMesh Triangle(float side);
+	MgMesh Triangle(float base, float height);
 	MgMesh Triangle(MgVec2 a, MgVec2 b, MgVec2 c);
 
 	MgMesh Quad();

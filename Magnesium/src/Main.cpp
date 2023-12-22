@@ -10,6 +10,7 @@
 #include "MgMath.h"
 
 using MgMath::MgVec2;
+using MgMath::MgVec3;
 
 int main()
 {
@@ -20,14 +21,15 @@ int main()
 
 	MgInputHandler input(window);
 
-	MgMesh quad = MgMeshPresets::Quad(MgVec2(-0.6f, -0.5f), MgVec2(0.7f, -0.4f), MgVec2(0.5f, 0.7f), MgVec2(-0.8f, 0.3f));
+	MgMesh quad = MgMeshPresets::Quad();
 
-	MgShader shader = MgShaderPresets::Color(0.0f, 0.4f, 1.0f);
+	MgShader shader = MgShaderPresets::Color(MgVec3(0.0f, 0.4f, 1.0f));
 	shader.use();
 
 	while (window.isOpen())
 	{
 		if (input.isKeyDown(MG_KEY_ESCAPE)) window.close();
+
 		window.startRender();
 		quad.render();
 		window.endRender();
@@ -36,6 +38,7 @@ int main()
 	window.dispose();
 	quad.dispose();
 	errorHandler.dispose();
+	shader.dispose();
 
 	return 0;
 }

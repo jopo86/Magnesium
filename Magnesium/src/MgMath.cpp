@@ -2,6 +2,16 @@
 
 using namespace MgMath;
 
+float MgMath::Radians(float degrees)
+{
+	return degrees * PI / 180;
+}
+
+float MgMath::Degrees(float radians)
+{
+	return radians * 180 / PI;
+}
+
 MgVec2::MgVec2()
 {
 	m_vec = glm::vec2(0.0f, 0.0f);

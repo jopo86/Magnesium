@@ -164,6 +164,7 @@
     <ClCompile Include="src\MgMeshPresets.cpp" />
     <ClCompile Include="src\MgShader.cpp" />
     <ClCompile Include="src\MgShaderPresets.cpp" />
+    <ClCompile Include="src\MgTexture.cpp" />
     <ClCompile Include="src\MgUtils.cpp" />
     <ClCompile Include="src\MgWindow.cpp" />
   </ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="src\MgDisposable.h" />
     <ClInclude Include="src\MgShader.h" />
     <ClInclude Include="src\MgShaderPresets.h" />
+    <ClInclude Include="src\MgTexture.h" />
     <ClInclude Include="src\MgUtils.h" />
     <ClInclude Include="src\MgWindow.h" />
   </ItemGroup>

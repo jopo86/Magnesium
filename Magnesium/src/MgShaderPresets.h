@@ -2,10 +2,13 @@
 
 #include "MgShader.h"
 #include "MgUtils.h"
+#include "MgMath.h"
 
 namespace MgShaderPresets
 {
-	MgShader Color(float r, float g, float b);
+	using MgMath::MgVec3;
+
+	MgShader Color(MgVec3 rgb);
 	MgShader VertexColor();
 	MgShader VertexTexture();
 	MgShader VertexColorTexture();

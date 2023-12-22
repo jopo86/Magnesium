@@ -6,6 +6,11 @@
 
 namespace MgMath
 {
+	const double PI = 3.141592653589793238;
+
+	float Radians(float degrees);
+	float Degrees(float radians);
+
 	class MgVec
 	{
 	public:

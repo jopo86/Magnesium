@@ -38,8 +38,8 @@
 #define MG_VERTEX_FORMAT_CTV 409
 #define MG_VERTEX_FORMAT_TCV 410
 
-#define MG_UNIT_LINES 411;
-#define MG_UNIT_TRIANGLES 412;
+#define MG_UNIT_LINES 411
+#define MG_UNIT_TRIANGLES 412
 
 #define MG_KEY_UNKNOWN -1
 #define MG_KEY_SPACE 32
@@ -170,4 +170,3 @@ typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 typedef unsigned long long ulonglong;
-

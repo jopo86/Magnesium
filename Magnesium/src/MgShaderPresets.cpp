@@ -1,12 +1,12 @@
 #include "MgShaderPresets.h"
 
-MgShader MgShaderPresets::Color(float r, float g, float b)
+MgShader MgShaderPresets::Color(MgVec3 rgb)
 {
 	std::string vertSource = MgUtils::ReadFile("src/shaders/ColorPreset.vert");
 	std::string fragSource = MgUtils::ReadFile("src/shaders/ColorPreset.frag");
 	MgShader shader(vertSource.c_str(), fragSource.c_str());
 	shader.use();
-	shader.uniform("u_color", r, g, b, 1.0f);
+	shader.uniform("u_color", rgb.getX(), rgb.getY(), rgb.getZ(), 1.0f);
 	shader.unuse();
 	return shader;
 }
