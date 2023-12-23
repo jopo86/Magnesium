@@ -1,5 +1,7 @@
 #include "MgWindow.h"
 
+using MgMath::MgVec3;
+
 MgWindow::MgWindow()
 {
 	p_window = nullptr;
@@ -145,11 +147,11 @@ bool MgWindow::isOpen()
 	return !glfwWindowShouldClose(p_window);
 }
 
-void MgWindow::setBackgroundColor(float r, float g, float b)
+void MgWindow::setBackgroundColor(MgVec3 rgb)
 {
-	bgR = r;
-	bgG = g;
-	bgB = b;
+	bgR = rgb.getX();
+	bgG = rgb.getY();
+	bgB = rgb.getZ();
 }
 
 void MgWindow::dispose()

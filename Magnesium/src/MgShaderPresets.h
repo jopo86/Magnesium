@@ -10,6 +10,6 @@ namespace MgShaderPresets
 
 	MgShader Color(MgVec3 rgb);
 	MgShader VertexColor();
-	MgShader VertexTexture();
-	MgShader VertexColorTexture();
+	MgShader Texture();
+	MgShader ColorTexture();
 }

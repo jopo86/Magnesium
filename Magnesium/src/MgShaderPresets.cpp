@@ -15,22 +15,19 @@ MgShader MgShaderPresets::VertexColor()
 {
 	std::string vertSource = MgUtils::ReadFile("src/shaders/VertexColorPreset.vert");
 	std::string fragSource = MgUtils::ReadFile("src/shaders/VertexColorPreset.frag");
-	MgShader shader(vertSource.c_str(), fragSource.c_str());
-	return shader;
+	return MgShader(vertSource.c_str(), fragSource.c_str());
 }
 
-MgShader MgShaderPresets::VertexTexture()
+MgShader MgShaderPresets::Texture()
 {
-	std::string vertSource = MgUtils::ReadFile("src/shaders/VertexTexturePreset.vert");
-	std::string fragSource = MgUtils::ReadFile("src/shaders/VertexTexturePreset.frag");
-	MgShader shader(vertSource.c_str(), fragSource.c_str());
-	return shader;
+	std::string vertSource = MgUtils::ReadFile("src/shaders/TexturePreset.vert");
+	std::string fragSource = MgUtils::ReadFile("src/shaders/TexturePreset.frag");
+	return MgShader(vertSource.c_str(), fragSource.c_str());
 }
 
-MgShader MgShaderPresets::VertexColorTexture()
+MgShader MgShaderPresets::ColorTexture()
 {
-	std::string vertSource = MgUtils::ReadFile("src/shaders/VertexColorTexturePreset.vert");
-	std::string fragSource = MgUtils::ReadFile("src/shaders/VertexColorTexturePreset.frag");
-	MgShader shader(vertSource.c_str(), fragSource.c_str());
-	return shader;
+	std::string vertSource = MgUtils::ReadFile("src/shaders/ColorTexturePreset.vert");
+	std::string fragSource = MgUtils::ReadFile("src/shaders/ColorTexturePreset.frag");
+	return MgShader(vertSource.c_str(), fragSource.c_str());
 }

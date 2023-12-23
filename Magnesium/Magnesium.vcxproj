@@ -158,6 +158,7 @@
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\MgErrorHandler.cpp" />
+    <ClCompile Include="src\MgImageData.cpp" />
     <ClCompile Include="src\MgInputHandler.cpp" />
     <ClCompile Include="src\MgMath.cpp" />
     <ClCompile Include="src\MgMesh.cpp" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClInclude Include="src\MgErrorHandler.h" />
     <ClInclude Include="src\Magnesium.h" />
+    <ClInclude Include="src\MgImageData.h" />
     <ClInclude Include="src\MgInputHandler.h" />
     <ClInclude Include="src\MgMath.h" />
     <ClInclude Include="src\MgMesh.h" />
@@ -181,6 +183,10 @@
     <ClInclude Include="src\MgTexture.h" />
     <ClInclude Include="src\MgUtils.h" />
     <ClInclude Include="src\MgWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\container.jpg" />
+    <Image Include="C:\Users\joshr\Downloads\brick.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,7 +3,9 @@
 #include <string>
 #include <fstream>
 
+#include "Magnesium.h"
 #include "MgErrorHandler.h"
+#include "MgImageData.h"
 
 namespace MgUtils
 {

@@ -8,9 +8,11 @@
 #include "Magnesium.h"
 #include "MgDisposable.h"
 #include "MgErrorHandler.h"
+#include "MgMath.h"
 
 class MgWindow : public MgDisposable
 {
+
 public:
 	MgWindow();
 	MgWindow(const char* title, int width, int height);
@@ -32,7 +34,7 @@ public:
 	bool isInitialized();
 	bool isOpen();
 
-	void setBackgroundColor(float r, float g, float b);
+	void setBackgroundColor(MgMath::MgVec3 rgb);
 
 	void dispose() override;
 

@@ -15,21 +15,16 @@ std::string MgUtils::ReadFile(const char* filepath)
 
 std::string MgUtils::ReadFile(const char* filepath, MgErrorHandler& errorHandler)
 {
-	std::string contents = "";
-	std::string line = "";
 	std::ifstream file(filepath);
 
-
-	if (file.is_open()) while (std::getline(file, line)) contents += line + "\n";
-	else
+	if (!file.is_open())
 	{
 		errorHandler.err("failed to locate file: \"" + std::string(filepath) + "\"");
 		return "";
 	}
-
 	file.close();
 
-	return contents;
+	return ReadFile(filepath);
 }
 
 void MgUtils::WriteFile(const char* filepath, const char* contents)
