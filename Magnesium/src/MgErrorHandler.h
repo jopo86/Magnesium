@@ -5,7 +5,6 @@
 #include <vector>
 
 #include "Magnesium.h"
-#include "MgDisposable.h"
 
 class MgErrorHandler : public MgDisposable
 {

@@ -10,13 +10,16 @@
 #include "MgMath.h"
 #include "MgTexture.h"
 #include "MgImageData.h"
+#include "MgRenderable.h"
+#include "MgRenderer.h"
+#include "MgRenderablePresets.h"
 
 using MgMath::MgVec2;
 using MgMath::MgVec3;
 
 int main()
 {
-	MgErrorHandler errorHandler = MgErrorHandler(true, true);
+	MgErrorHandler errorHandler = MgErrorHandler(true, false);
 
 	MgWindow window("Magnesium", 800, 600);
 	window.init(errorHandler);
@@ -24,42 +27,27 @@ int main()
 
 	MgInputHandler input(window);
 
-	float vertices[] = {
-		// pos					// tex coords
-		-0.5f, -0.5f, 0.0f,		0.0f, 0.0f,
-		 0.5f, -0.5f, 0.0f,		1.0f, 0.0f,
-		 0.5f,  0.5f, 0.0f,		1.0f, 1.0f,
-		-0.5f,  0.5f, 0.0f,		0.0f, 1.0f
-	};
+	MgRenderer renderer;
 
-	uint indices[] = {
-		0, 1, 2,
-		2, 3, 0
-	};
+	MgRenderable triangle = MgRenderablePresets::ColoredTriangle(0.6f, MgVec3(1.0f, 0.0f, 0.0f));
+	MgRenderable quad = MgRenderablePresets::TexturedQuad(MgTexture(MgImageData::Load("assets/textures/container.jpg", errorHandler), true));
 
-	MgMesh quad(vertices, sizeof(vertices), MG_VERTEX_FORMAT_VT, indices, sizeof(indices));
-	MgShader shader = MgShaderPresets::Texture();
-	MgTexture texture(MgImageData::Load("assets/textures/container.jpg", errorHandler));
+	renderer.add(triangle);
+	renderer.add(quad);
 
 	while (window.isOpen())
 	{
 		if (input.isKeyDown(MG_KEY_ESCAPE)) window.close();
 
 		window.startRender();
-
-		shader.use();
-		texture.bind();
-		quad.render();
-		texture.unbind();
-		shader.unuse();
-
+		renderer.render();
 		window.endRender();
 	}
 
+	renderer.dispose();
+	input.dispose();
 	window.dispose();
-	quad.dispose();
 	errorHandler.dispose();
-	shader.dispose();
 
 	return 0;
 }

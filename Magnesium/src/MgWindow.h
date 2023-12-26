@@ -6,7 +6,6 @@
 #include <GLFW/glfw3.h>
 
 #include "Magnesium.h"
-#include "MgDisposable.h"
 #include "MgErrorHandler.h"
 #include "MgMath.h"
 

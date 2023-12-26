@@ -122,13 +122,6 @@ MgMesh::MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indic
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-void MgMesh::render()
-{
-	glBindVertexArray(vao);
-	glDrawElements(GL_TRIANGLES, indicesSize / sizeof(uint), GL_UNSIGNED_INT, nullptr);
-	glBindVertexArray(0);
-}
-
 float* MgMesh::getVertices()
 {
 	return vertices;
@@ -147,6 +140,11 @@ uint MgMesh::getVerticesSize()
 uint MgMesh::getIndicesSize()
 {
 	return indicesSize;
+}
+
+uint MgMesh::getVaoID()
+{
+	return vao;
 }
 
 void MgMesh::dispose()

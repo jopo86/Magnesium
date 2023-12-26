@@ -36,7 +36,7 @@ MgMesh MgMeshPresets::Triangle(MgVec2 a, MgVec2 b, MgVec2 c)
 
 MgMesh MgMeshPresets::Quad()
 {
-	return MgMeshPresets::Quad(1.0f);
+	return Quad(1.0f);
 }
 
 MgMesh MgMeshPresets::Quad(float side)
@@ -48,9 +48,9 @@ MgMesh MgMeshPresets::Quad(float width, float height)
 {
 	return Quad(
 		MgVec2(-width / 2.0f, -height / 2.0f),
-		MgVec2(width / 2.0f, -height / 2.0f),
-		MgVec2(width / 2.0f, height / 2.0f),
-		MgVec2(-width / 2.0f, height / 2.0f)
+		MgVec2( width / 2.0f, -height / 2.0f),
+		MgVec2( width / 2.0f,  height / 2.0f),
+		MgVec2(-width / 2.0f,  height / 2.0f)
 	);
 }
 

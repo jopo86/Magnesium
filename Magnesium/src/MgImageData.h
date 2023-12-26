@@ -3,7 +3,6 @@
 #include <fstream>
 
 #include "Magnesium.h"
-#include "MgDisposable.h"
 #include "MgErrorHandler.h"
 
 class MgImageData : public MgDisposable

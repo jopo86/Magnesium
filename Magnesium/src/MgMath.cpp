@@ -4,17 +4,22 @@ using namespace MgMath;
 
 float MgMath::Radians(float degrees)
 {
-	return degrees * PI / 180;
+	return glm::radians(degrees);
 }
 
 float MgMath::Degrees(float radians)
 {
-	return radians * 180 / PI;
+	return glm::degrees(radians);
 }
 
 MgVec2::MgVec2()
 {
 	m_vec = glm::vec2(0.0f, 0.0f);
+}
+
+MgVec2::MgVec2(float xy)
+{
+	m_vec = glm::vec2(xy, xy);
 }
 
 MgVec2::MgVec2(float x, float y)
@@ -77,6 +82,11 @@ MgVec2 MgVec2::operator+(const MgVec2& vec)
 	return MgVec2(m_vec + vec.m_vec);
 }
 
+MgVec2 MgVec2::operator-()
+{
+	return MgVec2(-m_vec);
+}
+
 MgVec2 MgVec2::operator-(const MgVec2& vec)
 {
 	return MgVec2(m_vec - vec.m_vec);
@@ -90,6 +100,11 @@ MgVec2 MgVec2::operator*(const float& scalar)
 MgVec3::MgVec3()
 {
 	m_vec = glm::vec3(0.0f, 0.0f, 0.0f);
+}
+
+MgVec3::MgVec3(float xyz)
+{
+	m_vec = glm::vec3(xyz, xyz, xyz);
 }
 
 MgVec3::MgVec3(float x, float y, float z)
@@ -162,6 +177,11 @@ MgVec3 MgVec3::operator+(const MgVec3& vec)
 	return MgVec3(m_vec + vec.m_vec);
 }
 
+MgVec3 MgVec3::operator-()
+{
+	return MgVec3(-m_vec);
+}
+
 MgVec3 MgVec3::operator-(const MgVec3& vec)
 {
 	return MgVec3(m_vec - vec.m_vec);
@@ -175,6 +195,11 @@ MgVec3 MgVec3::operator*(const float& scalar)
 MgVec4::MgVec4()
 {
 	m_vec = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
+}
+
+MgVec4::MgVec4(float xyzw)
+{
+	m_vec = glm::vec4(xyzw, xyzw, xyzw, xyzw);
 }
 
 MgVec4::MgVec4(float x, float y, float z, float w)
@@ -255,6 +280,11 @@ void MgVec4::setW(float w)
 MgVec4 MgVec4::operator+(const MgVec4& vec)
 {
 	return MgVec4(m_vec + vec.m_vec);
+}
+
+MgVec4 MgVec4::operator-()
+{
+	return MgVec4(-m_vec);
 }
 
 MgVec4 MgVec4::operator-(const MgVec4& vec)
@@ -620,6 +650,22 @@ MgMat4x4::MgMat4x4(float scalar)
 MgMat4x4::MgMat4x4(glm::mat4x4 mat)
 {
 	m_mat = mat;
+}
+
+void MgMat4x4::translate(MgVec3 xyz)
+{
+	m_mat = glm::translate(m_mat, xyz.getMVec());
+}
+
+void MgMat4x4::rotate(float degrees, MgVec3 xyzMultiplier)
+{
+	m_mat = glm::rotate(m_mat, Radians(degrees), xyzMultiplier.getMVec());
+	
+}
+
+void MgMat4x4::scale(MgVec3 xyzMultiplier)
+{
+	m_mat = glm::scale(m_mat, xyzMultiplier.getMVec());
 }
 
 glm::mat4x4 MgMat4x4::getMMat()

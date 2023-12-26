@@ -3,7 +3,6 @@
 #include <glad/glad.h>
 
 #include "Magnesium.h"
-#include "MgDisposable.h"
 
 class MgMesh : public MgDisposable
 {
@@ -11,8 +10,7 @@ public:
 	MgMesh();
 	MgMesh(float* vertices, uint verticesSize, int vertexFormat, uint* indices, uint indicesSize);
 
-	void render();
-
+	uint getVaoID();
 	float* getVertices();
 	uint* getIndices();
 	uint getVerticesSize();

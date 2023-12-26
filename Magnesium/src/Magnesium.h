@@ -170,3 +170,9 @@ typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 typedef unsigned long long ulonglong;
+
+class MgDisposable
+{
+public:
+	virtual void dispose() = 0;
+};

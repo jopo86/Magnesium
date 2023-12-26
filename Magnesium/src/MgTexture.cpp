@@ -8,7 +8,7 @@ MgTexture::MgTexture()
 	imageData = MgImageData();
 }
 
-MgTexture::MgTexture(MgImageData imageData)
+MgTexture::MgTexture(MgImageData imageData, bool disposeImageData)
 {
 	tex = 0;
 	this->imageData = imageData;
@@ -26,17 +26,12 @@ MgTexture::MgTexture(MgImageData imageData)
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	imageData.dispose();
+	if (disposeImageData) imageData.dispose();
 }
 
-void MgTexture::bind()
+uint MgTexture::getTextureID()
 {
-	glBindTexture(GL_TEXTURE_2D, tex);
-}
-
-void MgTexture::unbind()
-{
-	glBindTexture(GL_TEXTURE_2D, 0);
+	return tex;
 }
 
 MgImageData MgTexture::getImageData()

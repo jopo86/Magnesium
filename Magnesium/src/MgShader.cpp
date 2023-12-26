@@ -95,17 +95,7 @@ MgShader::MgShader(const char* vertSource, const char* fragSource, MgErrorHandle
 	glDeleteShader(frag);
 }
 
-void MgShader::use()
-{
-	glUseProgram(prog);
-}
-
-void MgShader::unuse()
-{
-	glUseProgram(0);
-}
-
-uint MgShader::getProgram()
+uint MgShader::getProgramID()
 {
 	return prog;
 }
@@ -123,6 +113,11 @@ const char* MgShader::getFragSource()
 void MgShader::uniform(const char* name, float v0, float v1, float v2, float v3)
 {
 	glUniform4f(glGetUniformLocation(prog, name), v0, v1, v2, v3);
+}
+
+void MgShader::uniform(const char* name, MgMath::MgMat4 val)
+{
+	glUniformMatrix4fv(glGetUniformLocation(prog, name), 1, GL_FALSE, val.data());
 }
 
 void MgShader::dispose()

@@ -10,7 +10,6 @@ namespace MgMeshPresets
 {
 	using MgMath::MgVec2;
 	using MgMath::MgVec3;
-	using MgMath::Radians;
 
 	MgMesh Triangle();
 	MgMesh Triangle(float side);

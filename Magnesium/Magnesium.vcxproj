@@ -155,6 +155,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MgRenderablePresets.cpp" />
+    <ClCompile Include="src\MgRenderer.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\MgErrorHandler.cpp" />
@@ -163,6 +165,7 @@
     <ClCompile Include="src\MgMath.cpp" />
     <ClCompile Include="src\MgMesh.cpp" />
     <ClCompile Include="src\MgMeshPresets.cpp" />
+    <ClCompile Include="src\MgRenderable.cpp" />
     <ClCompile Include="src\MgShader.cpp" />
     <ClCompile Include="src\MgShaderPresets.cpp" />
     <ClCompile Include="src\MgTexture.cpp" />
@@ -177,7 +180,9 @@
     <ClInclude Include="src\MgMath.h" />
     <ClInclude Include="src\MgMesh.h" />
     <ClInclude Include="src\MgMeshPresets.h" />
-    <ClInclude Include="src\MgDisposable.h" />
+    <ClInclude Include="src\MgRenderable.h" />
+    <ClInclude Include="src\MgRenderablePresets.h" />
+    <ClInclude Include="src\MgRenderer.h" />
     <ClInclude Include="src\MgShader.h" />
     <ClInclude Include="src\MgShaderPresets.h" />
     <ClInclude Include="src\MgTexture.h" />
@@ -186,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\textures\container.jpg" />
-    <Image Include="C:\Users\joshr\Downloads\brick.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

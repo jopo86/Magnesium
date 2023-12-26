@@ -6,8 +6,6 @@
 
 namespace MgMath
 {
-	const double PI = 3.141592653589793238;
-
 	float Radians(float degrees);
 	float Degrees(float radians);
 
@@ -29,6 +27,7 @@ namespace MgMath
 	{
 	public:
 		MgVec2();
+		MgVec2(float xy);
 		MgVec2(float x, float y);
 		MgVec2(glm::vec2 vec);
 
@@ -47,6 +46,7 @@ namespace MgMath
 		friend float Dot(const MgVec2& vec1, const MgVec2& vec2);
 
 		MgVec2 operator+(const MgVec2& vec);
+		MgVec2 operator-();
 		MgVec2 operator-(const MgVec2& vec);
 		MgVec2 operator*(const float& scalar);
 
@@ -58,6 +58,7 @@ namespace MgMath
 	{
 	public:
 		MgVec3();
+		MgVec3(float xyz);
 		MgVec3(float x, float y, float z);
 		MgVec3(glm::vec3 vec);
 
@@ -79,6 +80,7 @@ namespace MgMath
 		friend float Dot(const MgVec3& vec1, const MgVec3& vec2);
 
 		MgVec3 operator+(const MgVec3& vec);
+		MgVec3 operator-();
 		MgVec3 operator-(const MgVec3& vec);
 		MgVec3 operator*(const float& scalar);
 
@@ -90,6 +92,7 @@ namespace MgMath
 	{
 	public:
 		MgVec4();
+		MgVec4(float xyzw);
 		MgVec4(float x, float y, float z, float w);
 		MgVec4(glm::vec4 vec);
 
@@ -112,6 +115,7 @@ namespace MgMath
 		friend float Dot(const MgVec4& vec1, const MgVec4& vec2);
 
 		MgVec4 operator+(const MgVec4& vec);
+		MgVec4 operator-();
 		MgVec4 operator-(const MgVec4& vec);
 		MgVec4 operator*(const float& scalar);
 
@@ -295,6 +299,10 @@ namespace MgMath
 		MgMat4x4();
 		MgMat4x4(float scalar);
 		MgMat4x4(glm::mat4x4 mat);
+
+		void translate(MgVec3 xyz);
+		void rotate(float degrees, MgVec3 xyzMultiplier);
+		void scale(MgVec3 xyzMultiplier);
 
 		glm::mat4x4 getMMat();
 
