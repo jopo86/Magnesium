@@ -58,9 +58,3 @@ double MgInputHandler::getMouseY()
 	glfwGetCursorPos(p_window, &mouseX, &mouseY);
 	return mouseY;
 }
-
-void MgInputHandler::dispose()
-{
-	p_window = nullptr;
-	mouseX = mouseY = 0;
-}

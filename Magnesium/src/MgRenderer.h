@@ -16,13 +16,13 @@ public:
 
 	void add(MgRenderable& renderable);
 
-	std::vector<MgRenderable*> getRenderables();
-	MgRenderable* getRenderable(int index);
+	void show(int index);
+	void hide(int index);
 
 	void dispose() override;
 
 private:
-	std::vector<MgRenderable*> renderables;
+	std::vector<std::pair<MgRenderable*, bool>> renderables;
 
 	bool optimized;
 	std::vector<std::pair<MgShader, std::vector<std::vector<MgRenderable>>>> optimizationPacks;

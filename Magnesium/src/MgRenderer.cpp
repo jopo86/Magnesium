@@ -1,8 +1,5 @@
 #include "MgRenderer.h"
 
-using std::vector;
-using std::pair;
-
 MgRenderer::MgRenderer()
 {
 	renderables = {};
@@ -17,31 +14,31 @@ void MgRenderer::optimize()
 
 void MgRenderer::render()
 {
-	for (int i = 0; i < renderables.size(); i++)
+	for (const std::pair<MgRenderable*, bool>& renderable : renderables)
 	{
-		renderables[i]->render();
+		if (renderable.second) renderable.first->render();
 	}
 }
 
 void MgRenderer::add(MgRenderable& renderable)
 {
-	renderables.push_back(&renderable);
+	renderables.push_back({ &renderable, true });
 }
 
-vector<MgRenderable*> MgRenderer::getRenderables()
+void MgRenderer::show(int index)
 {
-	return renderables;
+	renderables[index].second = true;
 }
 
-MgRenderable* MgRenderer::getRenderable(int index)
+void MgRenderer::hide(int index)
 {
-	return renderables[index];
+	renderables[index].second = false;
 }
 
 void MgRenderer::dispose()
 {
 	for (int i = 0; i < renderables.size(); i++)
 	{
-		renderables[i]->dispose();
+		renderables[i].first->dispose();
 	}
 }

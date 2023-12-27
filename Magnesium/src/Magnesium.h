@@ -1,6 +1,14 @@
+/*
+ * @file A header file containing useful definitions used by the Magnesium library as well as the user.
+ */
+
 #pragma once
 
-#if defined(__LP64__) || defined(_LP64) || defined(__amd64__) || defined(__x86_64__) || defined(_M_X64) || defined(__ia64__) || defined(_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || defined(__ppc64__) || defined(__PPC64__) || defined(__mips64__) || defined(__mips64) || defined(__mips64) || defined(__sparc64__) || defined(__arch64__)
+/*
+ * Definitions for system info.
+ */
+
+#if defined(__LP64__) || defined(_LP64) || defined(__amd64__) || defined(__x86_64__) || defined(_M_X64) || defined(_WIN64) || defined(__ia64__) || defined(_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || defined(__ppc64__) || defined(__PPC64__) || defined(__mips64__) || defined(__mips64) || defined(__mips64) || defined(__sparc64__) || defined(__arch64__)
 	#define MG_ARCH_64
 #elif defined(__i386__) || defined(_M_IX86) || defined(__arm__) || defined(__mips__) || defined(__mips) || defined(__sparc__) || defined(__PPC__) || defined(__ppc__) || defined(__powerpc__) || defined(__powerpc) || defined(__ppc64__) || defined(__PPC64__) || defined(__ppc64) || defined(__PPC64) || defined(__mip) || defined(__mips) || defined(__mips__)
 	#define MG_ARCH_32
@@ -26,6 +34,12 @@
 	#define MG_BUFFER_SIZE 256
 #endif
 
+/*
+ * Definitions for vertex formats.
+ * These are used to tell the MgMesh class how the array of vertices is formatted.
+ * They allow specification of what types of vertices are in the array (V/C/T) and how they are ordered.
+ * V = vertices, C = colors, T = texture coordinates
+ */
 #define MG_VERTEX_FORMAT_V 400
 #define MG_VERTEX_FORMAT_VC 401
 #define MG_VERTEX_FORMAT_CV 402
@@ -38,9 +52,10 @@
 #define MG_VERTEX_FORMAT_CTV 409
 #define MG_VERTEX_FORMAT_TCV 410
 
-#define MG_UNIT_LINES 411
-#define MG_UNIT_TRIANGLES 412
-
+/*
+ * Definitions for each key on a keyboard.
+ * These are used to specify what the target key is when testing if a key is up/down by the MgInputHandler class.
+ */
 #define MG_KEY_UNKNOWN -1
 #define MG_KEY_SPACE 32
 #define MG_KEY_APOSTROPHE 39
@@ -164,6 +179,10 @@
 #define MG_KEY_MENU 348
 #define MG_MAX_KEY MG_KEY_MENU
 
+/*
+ * Type definitions for convenience.
+ * These are used by the library, but can be used by the user as well.
+ */
 typedef char byte;
 typedef unsigned char ubyte;
 typedef unsigned short ushort;
@@ -171,6 +190,9 @@ typedef unsigned int uint;
 typedef unsigned long ulong;
 typedef unsigned long long ulonglong;
 
+/*
+ * @brief Parent class for disposable objects.
+ */
 class MgDisposable
 {
 public:

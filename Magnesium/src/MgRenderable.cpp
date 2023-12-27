@@ -5,37 +5,43 @@ using MgMath::MgVec3;
 
 MgRenderable::MgRenderable() 
 {
+	mesh = nullptr;
+	shader = nullptr;
+	texture = nullptr;
 	model = MgMat4(1.0f);
 }
 
-MgRenderable::MgRenderable(MgMesh mesh)
+MgRenderable::MgRenderable(MgMesh& mesh)
 {
-	this->mesh = mesh;
+	this->mesh = &mesh;
+	shader = nullptr;
+	texture = nullptr;
 	model = MgMat4(1.0f);
 }
 
-MgRenderable::MgRenderable(MgMesh mesh, MgShader shader)
+MgRenderable::MgRenderable(MgMesh& mesh, MgShader& shader)
 {
-	this->mesh = mesh;
-	this->shader = shader;
+	this->mesh = &mesh;
+	this->shader = &shader;
+	texture = nullptr;
 	model = MgMat4(1.0f);
 }
 
-MgRenderable::MgRenderable(MgMesh mesh, MgShader shader, MgTexture texture)
+MgRenderable::MgRenderable(MgMesh& mesh, MgShader& shader, MgTexture& texture)
 {
-	this->mesh = mesh;
-	this->shader = shader;
-	this->texture = texture;
+	this->mesh = &mesh;
+	this->shader = &shader;
+	this->texture = &texture;
 	model = MgMat4(1.0f);
 }
 
 void MgRenderable::render()
 {
-	glUseProgram(shader.getProgramID());
-	glBindTexture(GL_TEXTURE_2D, texture.getTextureID());
-	shader.uniform("u_model", model);
-	glBindVertexArray(mesh.getVaoID());
-	glDrawElements(GL_TRIANGLES, mesh.getIndicesSize() / sizeof(uint), GL_UNSIGNED_INT, nullptr);
+	glUseProgram(shader->getProgramID());
+	glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+	shader->uniform("u_model", model);
+	glBindVertexArray(mesh->getVaoID());
+	glDrawElements(GL_TRIANGLES, mesh->getIndicesSize() / sizeof(uint), GL_UNSIGNED_INT, nullptr);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glUseProgram(0);
 }
@@ -65,24 +71,24 @@ void MgRenderable::resetTransform()
 	model = MgMat4(1.0f);
 }
 
-MgMesh MgRenderable::getMesh()
+MgMesh* MgRenderable::getMesh()
 {
 	return mesh;
 }
 
-MgShader MgRenderable::getShader()
+MgShader* MgRenderable::getShader()
 {
 	return shader;
 }
 
-MgTexture MgRenderable::getTexture()
+MgTexture* MgRenderable::getTexture()
 {
 	return texture;
 }
 
 void MgRenderable::dispose()
 {
-	texture.dispose();
-	shader.dispose();
-	mesh.dispose();
+	texture->dispose();
+	shader->dispose();
+	mesh->dispose();
 }

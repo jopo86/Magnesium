@@ -1,3 +1,7 @@
+/*
+ * @file A header file containing wrapper classes for vector and matrix math.
+ */
+
 #pragma once
 
 #include <glm/glm.hpp>
@@ -6,12 +10,27 @@
 
 namespace MgMath
 {
+	/*
+	 * @brief Converts a degree angle measure to radians.
+	 * @param degrees The degree angle measure.
+	 * @return The resulting radian angle measure.
+	 */
 	float Radians(float degrees);
+
+	/*
+	 * @brief Converts a radian angle measure to degrees.
+	 * @param radians The radian angle measure.
+	 * @return The resulting degree angle measure.
+	 */
 	float Degrees(float radians);
 
+	/*
+	 * @brief A parent class for vectors.
+	 */
 	class MgVec
 	{
 	public:
+
 		virtual float magnitude() = 0;
 		virtual void normalize() = 0;
 		virtual float* data() = 0;
@@ -23,6 +42,9 @@ namespace MgMath
 		virtual void setY(float y) = 0;
 	};
 
+	/*
+	 * @brief A vector with two components.
+	 */
 	class MgVec2 : public MgVec
 	{
 	public:
@@ -54,6 +76,9 @@ namespace MgMath
 		glm::vec2 m_vec;
 	};
 
+	/*
+	 * @brief A vector with three components.
+	 */
 	class MgVec3 : public MgVec
 	{
 	public:
@@ -88,6 +113,9 @@ namespace MgMath
 		glm::vec3 m_vec;
 	};
 
+	/*
+	 * @brief A vector with four components.
+	 */
 	class MgVec4 : public MgVec
 	{
 	public:
@@ -123,16 +151,42 @@ namespace MgMath
 		glm::vec4 m_vec;
 	};
 
+	/*
+	 * @brief The cross product vector operation between 3D vectors.
+	 * @return The resulting vector.
+	 */
 	MgVec3 Cross(const MgVec3& vec1, const MgVec3& vec2);
+
+	/*
+	 * @brief The dot product vector operation between 2D vectors.
+	 * @return The resulting scalar value.
+	 */
 	float Dot(const MgVec2& vec1, const MgVec2& vec2);
+
+	/*
+	 * @brief The dot product vector operation between 3D vectors.
+	 * @return The resulting scalar value.
+	 */
 	float Dot(const MgVec3& vec1, const MgVec3& vec2);
+
+	/*
+	 * @brief The dot product vector operation between 4D vectors.
+	 * @return The resulting scalar value.
+	 */
 	float Dot(const MgVec4& vec1, const MgVec4& vec2);
 
+
+	/*
+	 * @brief A parent class for matrices.
+	 */
 	class MgMat
 	{
 		virtual float* data() = 0;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 2x2
+	 */
 	class MgMat2x2 : public MgMat
 	{
 	public:
@@ -153,6 +207,9 @@ namespace MgMath
 		glm::mat2x2 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 2x3
+	 */
 	class MgMat2x3 : public MgMat
 	{
 	public:
@@ -173,6 +230,9 @@ namespace MgMath
 		glm::mat2x3 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 2x4
+	 */
 	class MgMat2x4 : public MgMat
 	{
 	public:
@@ -193,6 +253,9 @@ namespace MgMath
 		glm::mat2x4 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 3x2
+	 */
 	class MgMat3x2 : public MgMat
 	{
 	public:
@@ -213,6 +276,9 @@ namespace MgMath
 		glm::mat3x2 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 3x3
+	 */
 	class MgMat3x3 : public MgMat
 	{
 	public:
@@ -233,6 +299,9 @@ namespace MgMath
 		glm::mat3x3 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 3x4
+	 */
 	class MgMat3x4 : public MgMat
 	{
 	public:
@@ -253,6 +322,9 @@ namespace MgMath
 		glm::mat3x4 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 4x2
+	 */
 	class MgMat4x2 : public MgMat
 	{
 	public:
@@ -273,6 +345,9 @@ namespace MgMath
 		glm::mat4x2 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 4x3
+	 */
 	class MgMat4x3 : public MgMat
 	{
 	public:
@@ -293,6 +368,9 @@ namespace MgMath
 		glm::mat4x3 m_mat;
 	};
 
+	/*
+	 * @brief A matrix with dimensions 4x4
+	 */
 	class MgMat4x4 : public MgMat
 	{
 	public:
@@ -339,8 +417,18 @@ namespace MgMath
 
 	MgVec4 operator*(MgMat4x4& mat, MgVec4& vec);
 
-
+	/*
+	 * @brief A matrix with dimensions 2x2
+	 */
 	typedef MgMat2x2 MgMat2;
+
+	/*
+	 * @brief A matrix with dimensions 3x3
+	 */
 	typedef MgMat3x3 MgMat3;
+
+	/*
+	 * @brief A matrix with dimensions 4x4
+	 */
 	typedef MgMat4x4 MgMat4;
 }

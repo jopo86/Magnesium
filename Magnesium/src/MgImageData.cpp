@@ -77,26 +77,6 @@ int MgImageData::getNChannels()
 	return nChannels;
 }
 
-void MgImageData::setData(ubyte* data)
-{
-	this->data = data;
-}
-
-void MgImageData::setWidth(int width)
-{
-	this->width = width;
-}
-
-void MgImageData::setHeight(int height)
-{
-	this->height = height;
-}
-
-void MgImageData::setNChannels(int nChannels)
-{
-	this->nChannels = nChannels;
-}
-
 void MgImageData::dispose()
 {
 	stbi_image_free(data);
