@@ -48,20 +48,20 @@ namespace MgRenderablePresets
 	MgRenderable ColoredTriangle(MgVec2 a, MgVec2 b, MgVec2 c, MgVec3 rgb);
 
 	/*
-	 * @brief Creates a triangle renderable with a base and height of 1 and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a triangle renderable with a base and height of 1 and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @return The resulting renderable.
 	 */
 	MgRenderable VertexColoredTriangle();
 
 	/*
-	 * @brief Creates an equilateral triangle renderable with the specified side length and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates an equilateral triangle renderable with the specified side length and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param side The side length.
 	 * @return The resulting renderable.
 	 */
 	MgRenderable VertexColoredTriangle(float side);
 
 	/*
-	 * @brief Creates a triangle renderable with the specified base and height, and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a triangle renderable with the specified base and height, and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param base The base length.
 	 * @param height The height.
 	 * @return The resulting renderable.
@@ -69,7 +69,7 @@ namespace MgRenderablePresets
 	MgRenderable VertexColoredTriangle(float base, float height);
 
 	/*
-	 * @brief Creates a triangle renderable with the specified 3 vertices and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a triangle renderable with the specified 3 vertices and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param a The first vertex.
 	 * @param b The second vertex.
 	 * @param c The third vertex.
@@ -147,20 +147,20 @@ namespace MgRenderablePresets
 	MgRenderable ColoredQuad(MgVec2 a, MgVec2 b, MgVec2 c, MgVec2 d, MgVec3 rgb);
 
 	/*
-	 * @brief Creates a square renderable with side lengths of 1 and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a square renderable with side lengths of 1 and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @return The resulting renderable.
 	 */
 	MgRenderable VertexColoredQuad();
 
 	/*
-	 * @brief Creates a square renderable with the specified side length and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a square renderable with the specified side length and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param side The side length.
 	 * @return The resulting renderable.
 	 */
 	MgRenderable VertexColoredQuad(float side);
 
 	/*
-	 * @brief Creates a rectangle renderable with the specified width and height, and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a rectangle renderable with the specified width and height, and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param width The width of the rectangle.
 	 * @param height The height of the rectangle.
 	 * @return The resulting renderable.
@@ -168,7 +168,7 @@ namespace MgRenderablePresets
 	MgRenderable VertexColoredQuad(float width, float height);
 
 	/*
-	 * @brief Creates a quadrilateral renderable with the specified 4 vertices and the colors specified by the vertex positions, resulting in a gradient.
+	 * @brief Creates a quadrilateral renderable with the specified 4 vertices and uses the XYZ position of each vertex as the RGB color of that vertex, and blends the colors in between vertices.
 	 * @param a The bottom-left vertex.
 	 * @param b The bottom-right vertex.
 	 * @param c The top-right vertex.

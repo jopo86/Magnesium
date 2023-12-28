@@ -27,6 +27,7 @@ public:
 
 	/*
 	 * @brief Creates a new MgImageData object from the image at the specified file path.
+	 * This function may cause errors, it is recommended to use the overload with an error handler.
 	 * @param filepath The file path to the image.
 	 * @return The MgImageData object that was created.
 	 */

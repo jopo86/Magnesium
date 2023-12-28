@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MgGraphics.cpp" />
     <ClCompile Include="src\MgRenderablePresets.cpp" />
     <ClCompile Include="src\MgRenderer.cpp" />
     <ClCompile Include="src\glad.c" />
@@ -175,6 +176,7 @@
   <ItemGroup>
     <ClInclude Include="src\MgErrorHandler.h" />
     <ClInclude Include="src\Magnesium.h" />
+    <ClInclude Include="src\MgGraphics.h" />
     <ClInclude Include="src\MgImageData.h" />
     <ClInclude Include="src\MgInputHandler.h" />
     <ClInclude Include="src\MgMath.h" />

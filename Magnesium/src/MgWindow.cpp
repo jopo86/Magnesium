@@ -9,7 +9,6 @@ MgWindow::MgWindow()
 	width = 800;
 	height = 600;
 	bufferWidth = bufferHeight = 0;
-	bgR = bgG = bgB = 0.0f;
 	initialized = false;
 }
 
@@ -20,7 +19,6 @@ MgWindow::MgWindow(const char* title, int width, int height)
 	this->width = width;
 	this->height = height;
 	bufferWidth = bufferHeight = 0;
-	bgR = bgG = bgB = 0.0f;
 	initialized = false;
 }
 
@@ -32,7 +30,7 @@ void MgWindow::init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#ifdef __APPLE__
+#ifdef MG_OS_MAC
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 #endif
 
@@ -61,7 +59,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-#ifdef __APPLE__
+#ifdef MG_OS_MAC
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 #endif
 
@@ -91,7 +89,7 @@ void MgWindow::init(MgErrorHandler& errorHandler)
 
 void MgWindow::startRender()
 {
-	glClearColor(bgR, bgG, bgB, 1.0f);
+	glClearColor(background.getX(), background.getY(), background.getZ(), 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
@@ -149,9 +147,7 @@ bool MgWindow::isOpen()
 
 void MgWindow::setBackgroundColor(MgVec3 rgb)
 {
-	bgR = rgb.getX();
-	bgG = rgb.getY();
-	bgB = rgb.getZ();
+	background = rgb;
 }
 
 void MgWindow::dispose()

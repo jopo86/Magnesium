@@ -23,6 +23,7 @@ public:
 
 	/*
 	 * @brief Creates a new MgShader object from the specified vertex and fragment shader source code.
+	 * This function may cause errors, it is recommended to use the overload with an error handler.
 	 * @param vertSource The vertex shader source code.
 	 * @param fragSource The fragment shader source code.
 	 */

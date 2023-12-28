@@ -50,10 +50,3 @@ bool MgErrorHandler::isThrowing()
 {
 	return throwing;
 }
-
-void MgErrorHandler::dispose()
-{
-	errors.clear();
-	logging = false;
-	throwing = false;
-}

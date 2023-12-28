@@ -11,7 +11,7 @@
  * This class can be used to access the state of keys and mouse buttons, as well as the mouse position.
  * It can also lock/unlock the cursor.
  */
-class MgInputHandler : public MgDisposable
+class MgInputHandler
 {
 public:
 	/*

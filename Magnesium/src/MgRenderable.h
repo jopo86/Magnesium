@@ -26,14 +26,14 @@ public:
 	 * @brief Creates a new MgRenderable object out of the specified mesh.
 	 * @param mesh The mesh to use.
 	 */
-	MgRenderable(MgMesh& mesh);
+	MgRenderable(MgMesh mesh);
 
 	/*
 	 * @brief Creates a new MgRenderable object out of the specified mesh and shader.
 	 * @param mesh The mesh to use.
 	 * @param shader The shader to use.
 	 */
-	MgRenderable(MgMesh& mesh, MgShader& shader);
+	MgRenderable(MgMesh mesh, MgShader shader);
 
 	/*
 	 * @brief Creates a new MgRenderable object out of the specified mesh, shader, and texture.
@@ -41,7 +41,7 @@ public:
 	 * @param shader The shader to use.
 	 * @param texture The texture to use.
 	 */
-	MgRenderable(MgMesh& mesh, MgShader& shader, MgTexture& texture);
+	MgRenderable(MgMesh mesh, MgShader shader, MgTexture texture);
 
 	/*
 	 * @brief Renders the object.
@@ -104,19 +104,19 @@ public:
 	 * @brief Gets the mesh associated with the renderable.
 	 * @return A pointer to the mesh.
 	 */
-	MgMesh* getMesh();
+	MgMesh getMesh();
 
 	/*
 	 * @brief Gets the shader associated with the renderable.
 	 * @return A pointer to the shader.
 	 */
-	MgShader* getShader();
+	MgShader getShader();
 
 	/*
 	 * @brief Gets the texture associated with the renderable.
 	 * @return A pointer to the texture.
 	 */
-	MgTexture* getTexture();
+	MgTexture getTexture();
 
 	/*
 	 * @brief Disposes of the renderable, including the associated mesh, shader, and texture.
@@ -126,9 +126,9 @@ public:
 	void dispose() override;
 
 private:
-	MgMesh* mesh;
-	MgShader* shader;
-	MgTexture* texture;
+	MgMesh mesh;
+	MgShader shader;
+	MgTexture texture;
 
 	MgMath::MgMat4 model;
 };
