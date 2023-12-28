@@ -8,6 +8,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+/*
+ * @brief A namespace providing access to classes for vector and matrix math.
+ * These classes are wrapper classes that use GLM for the underlying mathematics.
+ */
 namespace MgMath
 {
 	/*

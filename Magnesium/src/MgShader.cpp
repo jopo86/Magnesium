@@ -115,9 +115,9 @@ void MgShader::uniform(const char* name, float v0, float v1, float v2, float v3)
 	glUniform4f(glGetUniformLocation(prog, name), v0, v1, v2, v3);
 }
 
-void MgShader::uniform(const char* name, MgMath::MgMat4 val)
+void MgShader::uniform(const char* name, MgMath::MgMat4 mat)
 {
-	glUniformMatrix4fv(glGetUniformLocation(prog, name), 1, GL_FALSE, val.data());
+	glUniformMatrix4fv(glGetUniformLocation(prog, name), 1, GL_FALSE, mat.data());
 }
 
 void MgShader::dispose()

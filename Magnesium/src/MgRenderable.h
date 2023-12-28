@@ -11,6 +11,7 @@
 /*
  * @brief A class that represents a renderable object.
  * A renderable can be rendered directly, or through the MgRenderer class.
+ * This class is disposable.
  */
 class MgRenderable : public MgDisposable
 {

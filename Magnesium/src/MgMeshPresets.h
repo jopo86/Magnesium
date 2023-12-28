@@ -1,7 +1,3 @@
-/*
- * @file A header file providing access to preset meshes.
- */
-
 #pragma once
 
 #include <cmath>
@@ -10,6 +6,9 @@
 #include "MgMesh.h"
 #include "MgMath.h"
 
+/*
+ * @brief A namespace providing access to preset meshes for convenience.
+ */
 namespace MgMeshPresets
 {
 	using MgMath::MgVec2;
@@ -29,7 +28,9 @@ namespace MgMeshPresets
 	MgMesh Triangle(float side);
 
 	/*
-	 * @brief Creates a triangle mesh with the specified base and height lengths.
+	 * @brief Creates a triangle mesh with the specified base and height.
+	 * @param base The base length.
+	 * @param height The height.
 	 * @return The resulting mesh.
 	 */
 	MgMesh Triangle(float base, float height);
@@ -44,26 +45,28 @@ namespace MgMeshPresets
 	MgMesh Triangle(MgVec2 a, MgVec2 b, MgVec2 c);
 
 	/*
-	 * @brief Creates a square with side lengths of 1.
+	 * @brief Creates a square mesh with side lengths of 1.
 	 * @return The resulting mesh.
 	 */
 	MgMesh Quad();
 
 	/*
-	 * @brief Creates a square with the specified side length.
+	 * @brief Creates a square mesh with the specified side length.
 	 * @param The side length.
 	 * @return The resulting mesh.
 	 */
 	MgMesh Quad(float side);
 
 	/*
-	 * @brief Creates a rectangle with the specified width and height.
+	 * @brief Creates a rectangle mesh with the specified width and height.
+	 * @param width The width of the rectangle.
+	 * @param height The height of the rectangle.
 	 * @return The resulting mesh.
 	 */
 	MgMesh Quad(float width, float height);
 
 	/*
-	 * @brief Creates a quadrilateral with the specified vertices.
+	 * @brief Creates a quadrilateral mesh with the specified 4 vertices.
 	 * @param a The bottom-left vertex.
 	 * @param b The bottom-right vertex.
 	 * @param c The top-right vertex.

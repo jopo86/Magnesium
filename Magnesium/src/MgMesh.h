@@ -7,6 +7,7 @@
 /*
  * @brief A class to represent a mesh.
  * This includes vertices, the positions of each point on the mesh, as well as indices, the order of vertices as indices.
+ * This class is disposable.
  */
 class MgMesh : public MgDisposable
 {
@@ -29,7 +30,7 @@ public:
 
 	/*
 	 * @brief Gets the vertex array object ID.
-	 * Access to the VAO is provided for the library, or advanced users.
+	 * Access to the VAO is provided for the library, as well as for advanced users.
 	 * @return The VAO ID.
 	 */
 	uint getVaoID();
