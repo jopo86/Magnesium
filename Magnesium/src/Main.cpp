@@ -14,6 +14,7 @@
 #include "MgRenderer.h"
 #include "MgRenderablePresets.h"
 #include "MgGraphics.h"
+#include "MgFile.h"
 
 using MgMath::MgVec2;
 using MgMath::MgVec3;
@@ -29,10 +30,10 @@ int main()
 	MgInputHandler input(window);
 
 	MgRenderer renderer;
-
+				   
 	MgRenderable triangle = MgRenderablePresets::ColoredTriangle(0.6f, MgVec3(1.0f, 0.0f, 0.0f));
 	MgRenderable quad = MgRenderablePresets::TexturedQuad(MgTexture(MgImageData::Load("assets/textures/container.jpg", errorHandler)));
-
+				   
 	renderer.add(triangle);
 	renderer.add(quad);
 
@@ -41,6 +42,8 @@ int main()
 		if (input.isKeyDown(MG_KEY_ESCAPE)) window.close();
 		if (input.isKeyDown(MG_KEY_1)) MgGraphics::SetWireframe(false);
 		if (input.isKeyDown(MG_KEY_2)) MgGraphics::SetWireframe(true);
+		if (input.isKeyDown(MG_KEY_3)) renderer.hide(0);
+		if (input.isKeyDown(MG_KEY_4)) renderer.show(0);
 
 		window.startRender();
 		renderer.render();

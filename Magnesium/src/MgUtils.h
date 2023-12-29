@@ -10,11 +10,6 @@
 
 namespace MgUtils
 {
-	std::string ReadFile(const char* filepath);
-	std::string ReadFile(const char* filepath, MgErrorHandler& errorHandler);
-
-	void WriteFile(const char* filepath, const char* contents);
-
 	template<typename T>
 	bool Contains(std::vector<T> vec, T elem)
 	{
