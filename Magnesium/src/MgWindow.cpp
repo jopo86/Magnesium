@@ -9,7 +9,7 @@ MgWindow::MgWindow()
 	width = 800;
 	height = 600;
 	bufferWidth = bufferHeight = 0;
-	initialized = false;
+	initialized = fullscreen = false;
 }
 
 MgWindow::MgWindow(const char* title, int width, int height)
@@ -19,7 +19,7 @@ MgWindow::MgWindow(const char* title, int width, int height)
 	this->width = width;
 	this->height = height;
 	bufferWidth = bufferHeight = 0;
-	initialized = false;
+	initialized = fullscreen = false;
 }
 
 void MgWindow::init()
@@ -95,8 +95,27 @@ void MgWindow::startRender()
 
 void MgWindow::endRender()
 {
-	glfwSwapBuffers(p_window);
 	glfwPollEvents();
+	glfwSwapBuffers(p_window);
+}
+
+void MgWindow::setWindowed()
+{
+	glfwSetWindowMonitor(p_window, nullptr, 0, 0, width, height, 0);
+	fullscreen = false;
+}
+
+void MgWindow::setFullscreen()
+{
+	const GLFWvidmode* monitorInfo = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	glfwSetWindowMonitor(p_window, glfwGetPrimaryMonitor(), 0, 0, monitorInfo->width, monitorInfo->height, monitorInfo->refreshRate);
+	fullscreen = true;
+}
+
+void MgWindow::toggleFullscreen()
+{
+	if (fullscreen) setWindowed();
+	else setFullscreen();
 }
 
 void MgWindow::close()
@@ -170,4 +189,10 @@ void MgWindow::framebufferSizeCB(GLFWwindow* p_window, int width, int height)
 	MgWindow* p_mgWindow = (MgWindow*)glfwGetWindowUserPointer(p_window);
 	p_mgWindow->bufferWidth = width;
 	p_mgWindow->bufferHeight = height;
+}
+
+void MgWindow::keyCB(GLFWwindow* p_window, int key, int scancode, int action, int mods)
+{
+	MgWindow* p_mgWindow = (MgWindow*)glfwGetWindowUserPointer(p_window);
+	p_mgWindow->keyStates[key] = action;
 }

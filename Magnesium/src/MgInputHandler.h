@@ -5,6 +5,7 @@
 
 #include "Magnesium.h"
 #include "MgWindow.h"
+#include "MgGraphics.h"
 
 /*
  * @brief A class to handle input from a window.
@@ -24,7 +25,7 @@ public:
 	 * @brief Creates a new MgInputHandler object that gets input from the specified window.
 	 * @param window The window to get input from.
 	 */
-	MgInputHandler(MgWindow window);
+	MgInputHandler(MgWindow& window);
 
 	/*
 	 * @brief Gets whether the specified key is currently pressed down.
@@ -61,10 +62,15 @@ public:
 	void unlockCursor();
 
 	/*
-	 * @brief Gets the window that the input handler is associated with.
-	 * @return The window the input handler gets input from.
+	 * @brief Toggles the cursor lock state.
 	 */
-	MgWindow getWindow();
+	void toggleCursorLock();
+
+	/*
+	 * @brief Gets the window that the input handler is associated with.
+	 * @return A pointer to the window the input handler gets input from.
+	 */
+	MgWindow* getWindow();
 
 	/*
 	 * @brief Gets the horizontal position of the mouse cursor.
@@ -79,6 +85,12 @@ public:
 	double getMouseY();
 
 private:
+	MgWindow* window;
 	GLFWwindow* p_window;
 	double mouseX, mouseY;
+	bool cursorLocked;
+
+	int keyStates[MG_MAX_KEY] = { 0 };
+
+	static void keyCB(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

@@ -54,9 +54,24 @@ public:
 
 	/*
 	 * @brief Finishes rendering the current frame.
-	 * This function polls GLFW events and swaps the window buffers.
+	 * This function swaps the window buffers and polls GLFW events.
 	 */
 	void endRender();
+
+	/*
+	 * @brief Sets the window to windowed mode.
+	 */
+	void setWindowed();
+
+	/*
+	 * @brief Sets the window to fullscreen mode.
+	 */
+	void setFullscreen();
+
+	/*
+	 * @brief Toggles fullscreen/windowed mode.
+	 */
+	void toggleFullscreen();
 
 	/*
 	 * @brief Closes the window.
@@ -134,6 +149,10 @@ private:
 	MgMath::MgVec3 background;
 
 	bool initialized;
+	bool fullscreen;
+
+	int keyStates[MG_MAX_KEY] = { 0 };
 
 	static void framebufferSizeCB(GLFWwindow* p_window, int width, int height);
+	static void keyCB(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

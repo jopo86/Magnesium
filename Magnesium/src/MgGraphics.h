@@ -18,6 +18,11 @@ namespace MgGraphics
 	void SetWireframe(bool enabled);
 
 	/*
+	 * @brief Toggles wireframe mode.
+	 */
+	void ToggleWireframe();
+
+	/*
 	 * @brief Sets the width of lines rendered (for wireframe mode).
 	 * @param width The width of the lines, in pixels.
 	 */

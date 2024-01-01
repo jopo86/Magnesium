@@ -34,23 +34,6 @@
 	#define MG_BUFFER_SIZE 256
 #endif
 
-/*
- * Definitions for vertex formats.
- * These are used to tell the MgMesh class how the array of vertices is formatted.
- * They allow specification of what types of vertices are in the array (V/C/T) and how they are ordered.
- * V = vertices, C = colors, T = texture coordinates
- */
-#define MG_VERTEX_FORMAT_V 400
-#define MG_VERTEX_FORMAT_VC 401
-#define MG_VERTEX_FORMAT_CV 402
-#define MG_VERTEX_FORMAT_VT 403
-#define MG_VERTEX_FORMAT_TV 404
-#define MG_VERTEX_FORMAT_VCT 405
-#define MG_VERTEX_FORMAT_VTC 406
-#define MG_VERTEX_FORMAT_CVT 407
-#define MG_VERTEX_FORMAT_TVC 408
-#define MG_VERTEX_FORMAT_CTV 409
-#define MG_VERTEX_FORMAT_TCV 410
 
 /*
  * Definitions for each key on a keyboard.
@@ -178,6 +161,51 @@
 #define MG_KEY_RIGHT_SUPER 347
 #define MG_KEY_MENU 348
 #define MG_MAX_KEY MG_KEY_MENU
+
+#define MG_MOUSE_BUTTON_1 0
+#define MG_MOUSE_BUTTON_2 1
+#define MG_MOUSE_BUTTON_3 2
+#define MG_MOUSE_BUTTON_4 3
+#define MG_MOUSE_BUTTON_5 4
+#define MG_MOUSE_BUTTON_6 5
+#define MG_MOUSE_BUTTON_7 6
+#define MG_MOUSE_BUTTON_8 7
+#define MG_MOUSE_BUTTON_LEFT MG_MOUSE_BUTTON_1
+#define MG_MOUSE_BUTTON_RIGHT MG_MOUSE_BUTTON_2
+#define MG_MOUSE_BUTTON_MIDDLE MG_MOUSE_BUTTON_3
+#define MG_MAX_MOUSE_BUTTON MG_MOUSE_BUTTON_8
+
+/*
+ * Definitions for vertex formats.
+ * These are used to tell the MgMesh class how the array of vertices is formatted.
+ * They allow specification of what types of vertices are in the array (V/C/T) and how they are ordered.
+ * V = vertices, C = colors, T = texture coordinates
+ */
+#define MG_VERTEX_FORMAT_V 400
+#define MG_VERTEX_FORMAT_VC 401
+#define MG_VERTEX_FORMAT_CV 402
+#define MG_VERTEX_FORMAT_VT 403
+#define MG_VERTEX_FORMAT_TV 404
+#define MG_VERTEX_FORMAT_VCT 405
+#define MG_VERTEX_FORMAT_VTC 406
+#define MG_VERTEX_FORMAT_CVT 407
+#define MG_VERTEX_FORMAT_TVC 408
+#define MG_VERTEX_FORMAT_CTV 409
+#define MG_VERTEX_FORMAT_TCV 410
+
+/*
+ * Definitions for preset actions that a key can be bound to through the MgInputHandler class.
+ */
+#define MG_BIND_ACTION_CLOSE_WINDOW 411
+#define MG_BIND_ACTION_WINDOWED 412
+#define MG_BIND_ACTION_FULLSCREEN 413
+#define MG_BIND_ACTION_TOGGLE_FULLSCREEN 414
+#define MG_BIND_ACTION_WIREFRAME_ON 415
+#define MG_BIND_ACTION_WIREFRAME_OFF 416
+#define MG_BIND_ACTION_TOGGLE_WIREFRAME 417
+#define MG_BIND_ACTION_LOCK_CURSOR 418
+#define MG_BIND_ACTION_UNLOCK_CURSOR 419
+#define MG_BIND_ACTION_TOGGLE_CURSOR_LOCK 420
 
 /*
  * Type definitions for convenience.

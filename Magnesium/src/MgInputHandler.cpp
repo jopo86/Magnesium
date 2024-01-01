@@ -2,24 +2,30 @@
 
 MgInputHandler::MgInputHandler()
 {
+	window = nullptr;
 	p_window = nullptr;
 	mouseX = mouseY = 0;
+	cursorLocked = false;
 }
 
-MgInputHandler::MgInputHandler(MgWindow window)
+MgInputHandler::MgInputHandler(MgWindow& window)
 {
-	p_window = window.getGlfwWindowPtr();
+	this->window = &window;
+	p_window = this->window->getGlfwWindowPtr();
+	glfwSetKeyCallback(p_window, keyCB);
+	this->window->inputHandler = this;
 	mouseX = mouseY = 0;
+	cursorLocked = false;
 }
 
 bool MgInputHandler::isKeyDown(int key)
 {
-	return glfwGetKey(p_window, key) == GLFW_PRESS;
+	return keyStates[key] == GLFW_PRESS;
 }
 
 bool MgInputHandler::isKeyUp(int key)
 {
-	return glfwGetKey(p_window, key) == GLFW_RELEASE;
+	return keyStates[key] == GLFW_RELEASE;
 }
 
 bool MgInputHandler::isMouseButtonDown(int button)
@@ -35,16 +41,24 @@ bool MgInputHandler::isMouseButtonUp(int button)
 void MgInputHandler::lockCursor()
 {
 	glfwSetInputMode(p_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	cursorLocked = true;
 }
 
 void MgInputHandler::unlockCursor()
 {
 	glfwSetInputMode(p_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	cursorLocked = false;
 }
 
-MgWindow MgInputHandler::getWindow()
+void MgInputHandler::toggleCursorLock()
 {
-	return *((MgWindow*)glfwGetWindowUserPointer(p_window));
+	if (cursorLocked) unlockCursor();
+	else lockCursor();
+}
+
+MgWindow* MgInputHandler::getWindow()
+{
+	return window;
 }
 
 double MgInputHandler::getMouseX()
@@ -57,4 +71,9 @@ double MgInputHandler::getMouseY()
 {
 	glfwGetCursorPos(p_window, &mouseX, &mouseY);
 	return mouseY;
+}
+
+void MgInputHandler::keyCB(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	((MgWindow*)glfwGetWindowUserPointer(window))->inputHandler->keyStates[key] = action;
 }
