@@ -39,6 +39,9 @@ int main()
 
 	while (window.isOpen())
 	{
+		if (input.isKeyDown(MG_KEY_ESCAPE)) window.close();
+		if (input.isKeyDown(MG_KEY_1)) MgGraphics::SetWireframe(false);
+		if (input.isKeyDown(MG_KEY_2)) MgGraphics::SetWireframe(true);
 		if (input.isKeyDown(MG_KEY_3)) renderer.hide(0);
 		if (input.isKeyDown(MG_KEY_4)) renderer.show(0);
 
